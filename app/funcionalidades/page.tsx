@@ -157,7 +157,7 @@ export default function FuncionalidadesPage() {
 
       {/* Hero */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-mn-green-900">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mn-surface mb-4">
             Funcionalidades
           </h1>
@@ -169,7 +169,7 @@ export default function FuncionalidadesPage() {
 
       {/* Features Grid */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <div

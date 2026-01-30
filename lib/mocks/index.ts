@@ -54,8 +54,8 @@ export const mockPlans = [
   {
     id: '1',
     name: 'Premium',
-    priceMonthly: 49.90,
-    priceYearly: 479.90,
+    priceMonthly: 39.90,
+    priceYearly: 399.90,
     benefits: ['Acesso a todos os algoritmos', 'Modo Plantão ilimitado', 'Simulações exclusivas', 'Suporte prioritário', 'Sem anúncios'],
     active: true,
     highlighted: true
@@ -185,7 +185,7 @@ export const mockDashboardMetrics = {
 
 export const mockPillars = [
   {
-    title: 'Biblioteca de Casos Clínicos Interativos',
+    title: 'Casos Clínicos',
     description: 'Aprenda com casos reais e teste seus conhecimentos em cenários clínicos simulados.',
     icon: 'book'
   },

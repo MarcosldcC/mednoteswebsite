@@ -8,7 +8,7 @@ export default function PrivacidadePage() {
 
       {/* Hero */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-mn-green-900">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mn-surface mb-4">
             Política de Privacidade
           </h1>
@@ -20,7 +20,7 @@ export default function PrivacidadePage() {
 
       {/* Content */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto prose prose-lg">
             <div className="bg-mn-surface border border-mn-border rounded-2xl p-8 md:p-12">
               <h2 className="text-2xl font-bold text-mn-text mb-4">1. Introdução</h2>

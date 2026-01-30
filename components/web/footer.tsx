@@ -10,6 +10,7 @@ const footerLinks = {
     { href: "/sobre", label: "Sobre Nós" },
     { href: "/contato", label: "Contato" },
     { href: "/#depoimentos", label: "Depoimentos" },
+    { href: "/#parceiros", label: "Parceiros" },
   ],
   legal: [
     { href: "/termos", label: "Termos de Uso" },
@@ -20,15 +21,12 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="bg-mn-green-900 text-mn-surface">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-mn-surface flex items-center justify-center">
-                <span className="text-mn-green-900 font-bold text-sm">M</span>
-              </div>
-              <span className="font-semibold text-lg">mednotes</span>
+              <img src="/images/mednoteslogo.svg" alt="MedNotes" className="h-8 w-auto" />
             </div>
             <p className="text-mn-surface/70 text-sm leading-relaxed">
               Inteligência clínica baseada em evidências para profissionais de saúde.

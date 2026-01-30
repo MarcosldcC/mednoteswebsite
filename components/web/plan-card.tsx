@@ -1,7 +1,9 @@
 "use client"
 
+import Link from "next/link"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { StoreComingSoonDialog } from "@/components/web/store-coming-soon-dialog"
 import { cn } from "@/lib/utils"
 
 interface PlanCardProps {
@@ -97,16 +99,32 @@ export function PlanCard({
           ))}
         </ul>
 
-        <Button
-          className={cn(
-            "w-full transition-all",
-            highlighted
-              ? "bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90"
-              : "bg-mn-green-900 text-mn-surface hover:bg-mn-green-800"
-          )}
-        >
-          {isInstitutional ? "Entrar em Contato" : "Começar Agora"}
-        </Button>
+        {isInstitutional ? (
+          <Button
+            asChild
+            className={cn(
+              "w-full transition-all",
+              highlighted
+                ? "bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90"
+                : "bg-mn-green-900 text-mn-surface hover:bg-mn-green-800"
+            )}
+          >
+            <Link href="/contato">Entrar em Contato</Link>
+          </Button>
+        ) : (
+          <StoreComingSoonDialog>
+            <Button
+              className={cn(
+                "w-full transition-all",
+                highlighted
+                  ? "bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90"
+                  : "bg-mn-green-900 text-mn-surface hover:bg-mn-green-800"
+              )}
+            >
+              Em breve nas lojas
+            </Button>
+          </StoreComingSoonDialog>
+        )}
       </div>
     </div>
   )

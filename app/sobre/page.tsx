@@ -43,7 +43,7 @@ export default function SobrePage() {
 
       {/* Hero */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-mn-green-900">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mn-surface mb-4">Sobre Nós</h1>
           <p className="text-lg text-mn-surface/80 max-w-2xl mx-auto">
             Conheça a história e os valores que nos movem
@@ -53,7 +53,7 @@ export default function SobrePage() {
 
       {/* Story Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-mn-text mb-6">Nossa História</h2>
             <p className="text-mn-muted leading-relaxed mb-4">
@@ -77,7 +77,7 @@ export default function SobrePage() {
 
       {/* Values Section */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <h2 className="text-3xl font-bold text-mn-text mb-12 text-center">Nossos Valores</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
@@ -98,7 +98,7 @@ export default function SobrePage() {
 
       {/* Team Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <h2 className="text-3xl font-bold text-mn-text mb-12 text-center">Nossa Equipe</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {team.map((member, index) => (
@@ -122,7 +122,7 @@ export default function SobrePage() {
 
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-mn-green-900">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <p className="text-4xl md:text-5xl font-bold text-mn-surface mb-2">50K+</p>

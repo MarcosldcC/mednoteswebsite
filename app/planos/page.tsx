@@ -17,7 +17,7 @@ export default function PlanosPage() {
 
       {/* Hero */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-mn-green-900">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mn-surface mb-4">
             Escolha seu Plano
           </h1>
@@ -29,7 +29,7 @@ export default function PlanosPage() {
 
       {/* Plans Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           {/* Toggle */}
           <div className="mb-12">
             <PlanToggle isYearly={isYearly} onToggle={setIsYearly} />
@@ -49,16 +49,6 @@ export default function PlanosPage() {
                 isInstitutional={plan.isInstitutional}
               />
             ))}
-          </div>
-
-          {/* Free Plan Link */}
-          <div className="text-center mt-8">
-            <Link
-              href="/"
-              className="text-sm text-mn-muted hover:text-mn-text transition-colors"
-            >
-              Continuar com o plano gratuito →
-            </Link>
           </div>
 
           {/* FAQ */}

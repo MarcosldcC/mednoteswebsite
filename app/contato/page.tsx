@@ -30,7 +30,7 @@ export default function ContatoPage() {
 
       {/* Hero */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-mn-green-900">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mn-surface mb-4">Contato</h1>
           <p className="text-lg text-mn-surface/80 max-w-2xl mx-auto">
             Fale conosco. Estamos aqui para ajudar!
@@ -40,7 +40,7 @@ export default function ContatoPage() {
 
       {/* Contact Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Info */}
             <div>

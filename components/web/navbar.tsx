@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { StoreComingSoonDialog } from "@/components/web/store-coming-soon-dialog"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
@@ -18,15 +19,17 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-mn-green-900 border-b border-mn-border-light">
-      <nav className="container mx-auto px-4">
+    <header
+      className={cn(
+        // Sempre verde glass (padrão do site) — sem mudança por scroll
+        "fixed top-4 left-4 right-4 z-50 rounded-2xl bg-mn-green-900/90 backdrop-blur-lg border border-mn-green-900/50 shadow-lg shadow-black/10"
+      )}
+    >
+      <nav className="container mx-auto px-6 md:px-10 lg:px-16">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-mn-surface flex items-center justify-center">
-              <span className="text-mn-green-900 font-bold text-sm">M</span>
-            </div>
-            <span className="text-mn-surface font-semibold text-lg">mednotes</span>
+            <img src="/images/mednoteslogo.svg" alt="MedNotes" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,18 +38,20 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-mn-surface/80 hover:text-mn-surface transition-colors text-sm font-medium"
+                className="transition-colors text-sm font-medium text-mn-surface hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA - Em breve nas lojas (popup) */}
           <div className="hidden md:flex items-center gap-3">
-            <Button className="bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90">
-              Baixar App
-            </Button>
+            <StoreComingSoonDialog>
+              <Button className="bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90">
+                Em breve nas lojas
+              </Button>
+            </StoreComingSoonDialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -72,16 +77,18 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-mn-surface/80 hover:text-mn-surface transition-colors text-sm font-medium py-2"
+                className="transition-colors text-sm font-medium py-2 text-mn-surface hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-mn-border-light">
-              <Button className="w-full bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90">
-                Baixar App
-              </Button>
+              <StoreComingSoonDialog>
+                <Button className="w-full bg-mn-surface text-mn-green-900 hover:bg-mn-surface/90">
+                  Em breve nas lojas
+                </Button>
+              </StoreComingSoonDialog>
             </div>
           </div>
         </div>

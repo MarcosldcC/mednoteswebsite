@@ -182,3 +182,60 @@
     transform: rotate(360deg);
   }
 }
+
+/* Scroll reveal animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.scroll-reveal-initial {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* Sidebar admin - scrollbar elegante */
+.sidebar-nav-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(251, 248, 239, 0.35) transparent;
+}
+
+.sidebar-nav-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav-scroll::-webkit-scrollbar-thumb {
+  background: rgba(251, 248, 239, 0.25);
+  border-radius: 3px;
+}
+
+.sidebar-nav-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 248, 239, 0.45);
+}
