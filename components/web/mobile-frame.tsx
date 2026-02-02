@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useRef, useState, useCallback } from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 interface MobileFrameProps {
@@ -10,7 +11,7 @@ interface MobileFrameProps {
   className?: string
 }
 
-const MAX_TILT = 14
+const MAX_TILT = 5
 
 export function MobileFrame({ children, imageSrc, alt = "App screenshot", className }: MobileFrameProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -37,7 +38,7 @@ export function MobileFrame({ children, imageSrc, alt = "App screenshot", classN
   return (
     <div
       ref={containerRef}
-      className={cn("relative mx-auto transition-transform duration-150 ease-out", className)}
+      className={cn("relative mx-auto transition-transform duration-300 ease-out", className)}
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -47,7 +48,7 @@ export function MobileFrame({ children, imageSrc, alt = "App screenshot", classN
     >
       {/* Phone Frame - 3D tilt */}
       <div
-        className="relative bg-mn-green-900 rounded-[2.5rem] p-2 shadow-xl transition-transform duration-150 ease-out"
+        className="relative bg-mn-green-900 rounded-[2.5rem] p-2 shadow-xl transition-transform duration-300 ease-out"
         style={{
           transform: `perspective(1000px) rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg)`,
           transformStyle: "preserve-3d",
@@ -61,10 +62,12 @@ export function MobileFrame({ children, imageSrc, alt = "App screenshot", classN
           {/* Screen */}
           <div className="relative bg-mn-surface rounded-[1.75rem] overflow-hidden aspect-[9/19.5]">
             {imageSrc ? (
-              <img
-                src={imageSrc || "/placeholder.svg"}
+              <Image
+                src={imageSrc}
                 alt={alt}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 224px, 288px"
+                className="object-cover"
               />
             ) : children ? (
               children

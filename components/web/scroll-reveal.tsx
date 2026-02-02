@@ -23,7 +23,8 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const hasAnimatedRef = useRef(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -32,12 +33,11 @@ export function ScrollReveal({
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true)
-          if (delay > 0) {
-            const t = setTimeout(() => setIsVisible(true), delay)
-            return () => clearTimeout(t)
-          }
+        if (!entry.isIntersecting || hasAnimatedRef.current) return
+        hasAnimatedRef.current = true
+        if (delay > 0) {
+          timeoutRef.current = setTimeout(() => setIsVisible(true), delay)
+        } else {
           setIsVisible(true)
         }
       },
@@ -45,8 +45,11 @@ export function ScrollReveal({
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
-  }, [delay, threshold, hasAnimated])
+    return () => {
+      observer.disconnect()
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [delay, threshold])
 
   const animationClass = isVisible
     ? variant === "up"

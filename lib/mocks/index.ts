@@ -1,11 +1,11 @@
 // MedNotes Mock Data
 
 export const mockUsers = [
-  { id: '1', name: 'Paulo Silva', email: 'paulo@email.com', status: 'active', plan: 'premium', avatar: '/placeholder-user.jpg', createdAt: '2024-01-15', lastLogin: '2024-01-28' },
-  { id: '2', name: 'Ana Costa', email: 'ana@email.com', status: 'active', plan: 'free', avatar: '/placeholder-user.jpg', createdAt: '2024-01-10', lastLogin: '2024-01-27' },
-  { id: '3', name: 'Carlos Mendes', email: 'carlos@email.com', status: 'blocked', plan: 'institucional', avatar: '/placeholder-user.jpg', createdAt: '2023-12-20', lastLogin: '2024-01-20' },
-  { id: '4', name: 'Maria Santos', email: 'maria@email.com', status: 'active', plan: 'premium', avatar: '/placeholder-user.jpg', createdAt: '2024-01-05', lastLogin: '2024-01-28' },
-  { id: '5', name: 'João Oliveira', email: 'joao@email.com', status: 'active', plan: 'free', avatar: '/placeholder-user.jpg', createdAt: '2024-01-20', lastLogin: '2024-01-26' },
+  { id: '1', name: 'Paulo Silva', email: 'paulo@email.com', status: 'active', plan: 'premium', avatar: '', createdAt: '2024-01-15', lastLogin: '2024-01-28' },
+  { id: '2', name: 'Ana Costa', email: 'ana@email.com', status: 'active', plan: 'free', avatar: '', createdAt: '2024-01-10', lastLogin: '2024-01-27' },
+  { id: '3', name: 'Carlos Mendes', email: 'carlos@email.com', status: 'blocked', plan: 'institucional', avatar: '', createdAt: '2023-12-20', lastLogin: '2024-01-20' },
+  { id: '4', name: 'Maria Santos', email: 'maria@email.com', status: 'active', plan: 'premium', avatar: '', createdAt: '2024-01-05', lastLogin: '2024-01-28' },
+  { id: '5', name: 'João Oliveira', email: 'joao@email.com', status: 'active', plan: 'free', avatar: '', createdAt: '2024-01-20', lastLogin: '2024-01-26' },
 ]
 
 export const mockAlgorithms = [
@@ -211,19 +211,19 @@ export const mockTestimonials = [
     name: 'Dr. Rafael Martins',
     role: 'Médico Emergencista',
     content: 'O MedNotes revolucionou minha prática no PS. Tenho acesso rápido a protocolos atualizados sempre que preciso.',
-    avatar: '/placeholder-user.jpg'
+    avatar: ''
   },
   {
     name: 'Dra. Camila Souza',
     role: 'Residente de Clínica Médica',
     content: 'As simulações são incríveis! Me ajudaram muito na preparação para os plantões.',
-    avatar: '/placeholder-user.jpg'
+    avatar: ''
   },
   {
     name: 'Dr. Bruno Almeida',
     role: 'Cardiologista',
     content: 'Recomendo para todos os colegas. O conteúdo é de alta qualidade e sempre atualizado.',
-    avatar: '/placeholder-user.jpg'
+    avatar: ''
   },
 ]
 

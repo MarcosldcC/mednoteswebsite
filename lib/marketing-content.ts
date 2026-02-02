@@ -47,7 +47,7 @@ export const defaultMarketingContent: MarketingContent = {
     name: t.name,
     role: t.role,
     content: t.content,
-    avatar: t.avatar || "/placeholder-user.jpg",
+    avatar: t.avatar || "",
   })),
   ctaTitle: "Pronto para Evoluir sua Prática?",
   ctaSubtitle:
@@ -67,13 +67,54 @@ export function getMarketingContentFromStorage(): MarketingContent | null {
   }
 }
 
-/** Hook para a home page: lê conteúdo salvo pelo admin (localStorage) ou usa o padrão */
+/** Garante que listas tenham tamanho mínimo; se o conteúdo salvo estiver incompleto, usa o padrão nas listas. */
+function mergeWithDefaults(saved: MarketingContent): MarketingContent {
+  return {
+    ...saved,
+    hero: saved.hero ?? defaultMarketingContent.hero,
+    pillars:
+      Array.isArray(saved.pillars) && saved.pillars.length >= 4
+        ? saved.pillars
+        : defaultMarketingContent.pillars,
+    steps:
+      Array.isArray(saved.steps) && saved.steps.length >= 4
+        ? saved.steps
+        : defaultMarketingContent.steps,
+    testimonials:
+      Array.isArray(saved.testimonials) && saved.testimonials.length >= 3
+        ? saved.testimonials
+        : defaultMarketingContent.testimonials,
+    ctaTitle: saved.ctaTitle ?? defaultMarketingContent.ctaTitle,
+    ctaSubtitle: saved.ctaSubtitle ?? defaultMarketingContent.ctaSubtitle,
+    ctaButtonPrimary: saved.ctaButtonPrimary ?? defaultMarketingContent.ctaButtonPrimary,
+    ctaButtonSecondary: saved.ctaButtonSecondary ?? defaultMarketingContent.ctaButtonSecondary,
+  }
+}
+
+/** Verifica se o conteúdo salvo está incompleto (listas com menos itens que o padrão). */
+function isIncomplete(saved: MarketingContent): boolean {
+  return (
+    !Array.isArray(saved.pillars) ||
+    saved.pillars.length < 4 ||
+    !Array.isArray(saved.steps) ||
+    saved.steps.length < 4 ||
+    !Array.isArray(saved.testimonials) ||
+    saved.testimonials.length < 3
+  )
+}
+
+/** Hook para a home page: lê conteúdo salvo pelo admin (localStorage) ou usa o padrão. Nunca exibe listas incompletas. */
 export function useMarketingContent(): MarketingContent {
   const [content, setContent] = useState<MarketingContent>(defaultMarketingContent)
 
   useEffect(() => {
     const saved = getMarketingContentFromStorage()
-    if (saved) setContent(saved)
+    if (!saved) return
+    if (isIncomplete(saved)) {
+      localStorage.removeItem(MARKETING_STORAGE_KEY)
+      return
+    }
+    setContent(mergeWithDefaults(saved))
   }, [])
 
   return content

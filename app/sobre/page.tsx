@@ -120,30 +120,6 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-mn-green-900">
-        <div className="container mx-auto px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-4xl md:text-5xl font-bold text-mn-surface mb-2">50K+</p>
-              <p className="text-mn-surface/70">Usuários Ativos</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold text-mn-surface mb-2">500+</p>
-              <p className="text-mn-surface/70">Algoritmos</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold text-mn-surface mb-2">100+</p>
-              <p className="text-mn-surface/70">Simulações</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold text-mn-surface mb-2">4.9</p>
-              <p className="text-mn-surface/70">Avaliação nas Lojas</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   )
