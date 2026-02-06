@@ -30,10 +30,11 @@ const values = [
 ]
 
 const team = [
-  { name: "Dr. Lucas Ferreira", role: "CEO & Co-fundador", specialty: "Medicina de Emergência" },
-  { name: "Dra. Beatriz Almeida", role: "CMO & Co-fundadora", specialty: "Cardiologia" },
-  { name: "André Santos", role: "CTO", specialty: "Engenharia de Software" },
-  { name: "Dra. Marina Costa", role: "Head de Conteúdo", specialty: "Clínica Médica" },
+  { name: "Paola Sthéfanie", role: "CEO", specialty: "Medicina de Emergência" },
+  { name: "Larissa Almeida", role: "CFO", specialty: "Contabilidade" },
+  { name: "Marcos Cunha", role: "CTO", specialty: "Front-end" },
+  { name: "Miguel Arcanjo", role: "Back-end Developer", specialty: "Back-end" },
+  { name: "Ana Carolina", role: "Social Media", specialty: "Marketing Digital" },
 ]
 
 export default function SobrePage() {
@@ -57,18 +58,18 @@ export default function SobrePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-mn-text mb-6">Nossa História</h2>
             <p className="text-mn-muted leading-relaxed mb-4">
-              O MedNotes nasceu da frustração de médicos residentes que não encontravam uma 
-              ferramenta adequada para consultar protocolos durante seus plantões. Em 2022, 
-              um grupo de médicos e desenvolvedores se uniu para criar a solução que eles 
+              O MedNotes nasceu da frustração de médicos residentes que não encontravam uma
+              ferramenta adequada para consultar protocolos durante seus plantões. Em 2022,
+              um grupo de médicos e desenvolvedores se uniu para criar a solução que eles
               mesmos gostariam de ter.
             </p>
             <p className="text-mn-muted leading-relaxed mb-4">
-              Desde então, crescemos para uma comunidade de mais de 50.000 profissionais de 
-              saúde em todo o Brasil, com conteúdo revisado por especialistas e atualizado 
+              Desde então, crescemos para uma comunidade de mais de 50.000 profissionais de
+              saúde em todo o Brasil, com conteúdo revisado por especialistas e atualizado
               constantemente.
             </p>
             <p className="text-mn-muted leading-relaxed">
-              Nosso compromisso é com a qualidade da informação médica e com o impacto 
+              Nosso compromisso é com a qualidade da informação médica e com o impacto
               positivo na vida dos pacientes através de decisões clínicas mais assertivas.
             </p>
           </div>
@@ -100,13 +101,13 @@ export default function SobrePage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-10 lg:px-16">
           <h2 className="text-3xl font-bold text-mn-text mb-12 text-center">Nossa Equipe</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 justi max-w-6xl mx-auto">
             {team.map((member, index) => (
               <div
                 key={index}
-                className="bg-mn-surface border border-mn-border rounded-2xl p-6 text-center"
+                className="bg-mn-surface border border-mn-border rounded-2xl p-8 text-center w-56"
               >
-                <div className="w-16 h-16 rounded-full bg-mn-green-900/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-18 h-18 rounded-full bg-mn-green-900/10 flex items-center justify-center mx-auto mb-6">
                   <span className="text-mn-green-900 font-bold text-xl">
                     {member.name.split(" ").map((n) => n[0]).join("")}
                   </span>

@@ -4,7 +4,7 @@ import React from "react"
 import Link from "next/link"
 import {
   ArrowRight, Users, TrendingUp, Shield, Database, BarChart3, Lock, Zap,
-  CheckCircle2, GraduationCap, LineChart
+  CheckCircle2, GraduationCap, LineChart, Clock
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/web/navbar"
@@ -126,43 +126,111 @@ export default function InstitucionalPage() {
               </ScrollReveal>
             </div>
 
-            {/* Hero Visual/Dashboard Mockup placeholder */}
+            {/* Hero Visual/Dashboard Mockup */}
             <div className="flex-1 w-full max-w-lg lg:max-w-none relative hidden md:block">
               <ScrollReveal delay={0.3} className="relative">
-                <div className="relative rounded-2xl border border-mn-surface/10 bg-mn-surface/5 backdrop-blur-sm p-2 shadow-2xl skew-y-[-2deg] hover:skew-y-0 transition-transform duration-700 ease-out">
-                  <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-mn-surface to-mn-surface-alt overflow-hidden border border-mn-surface/20 shadow-inner relative group">
-                    {/* Mockup UI Elements */}
-                    <div className="absolute top-4 left-4 right-4 h-8 bg-white/50 rounded-md flex items-center px-3 space-x-2">
-                      <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                      <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-                      <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                <div className="relative rounded-2xl border border-mn-surface/10 bg-mn-surface/5 backdrop-blur-sm p-3 shadow-2xl skew-y-[-2deg] hover:skew-y-0 transition-transform duration-700 ease-out">
+                  <div className="rounded-xl bg-mn-surface overflow-hidden border border-mn-surface/20 shadow-inner">
+                    {/* Header */}
+                    <div className="bg-white/95 border-b border-mn-border p-4 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-mn-green-900 flex items-center justify-center">
+                          <TrendingUp className="w-5 h-5 text-mn-surface" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-mn-muted uppercase leading-none">Dashboard</p>
+                          <p className="text-sm font-bold text-mn-text leading-none mt-1">Visão Geral</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-amber-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      </div>
                     </div>
 
-                    <div className="absolute top-16 left-4 right-4 bottom-4 grid grid-cols-2 gap-4">
-                      <div className="bg-white/60 rounded-lg p-4 shadow-sm">
-                        <div className="h-4 w-24 bg-mn-green-900/10 rounded mb-2"></div>
-                        <div className="h-8 w-16 bg-mn-green-900/20 rounded"></div>
+                    {/* Dashboard Content */}
+                    <div className="p-4 bg-gray-50/50 space-y-4">
+                      {/* Top Metrics Row */}
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white p-3 rounded-xl border border-mn-border shadow-sm">
+                          <div className="flex items-center gap-2 mb-2 text-mn-muted">
+                            <Users className="w-4 h-4" />
+                            <span className="text-xs font-medium">Alunos Vinculados</span>
+                          </div>
+                          <div className="text-2xl font-bold text-mn-text">1.248</div>
+                          <div className="text-xs text-green-600 font-medium flex items-center mt-1">
+                            <TrendingUp className="w-3 h-3 mr-1" /> +12% este mês
+                          </div>
+                        </div>
+                        <div className="bg-white p-3 rounded-xl border border-mn-border shadow-sm">
+                          <div className="flex items-center gap-2 mb-2 text-mn-muted">
+                            <Users className="w-4 h-4" />
+                            <span className="text-xs font-medium">Ativos (30d)</span>
+                          </div>
+                          <div className="text-2xl font-bold text-mn-text">892</div>
+                          <div className="text-xs text-green-600 font-medium flex items-center mt-1">
+                            <TrendingUp className="w-3 h-3 mr-1" /> 71.5% engajamento
+                          </div>
+                        </div>
                       </div>
-                      <div className="bg-white/60 rounded-lg p-4 shadow-sm">
-                        <div className="h-4 w-24 bg-mn-green-900/10 rounded mb-2"></div>
-                        <div className="h-8 w-16 bg-mn-green-900/20 rounded"></div>
+
+                      {/* Main Chart Area */}
+                      <div className="bg-white p-4 rounded-xl border border-mn-border shadow-sm">
+                        <div className="flex items-center justify-between mb-4">
+                          <div>
+                            <h4 className="text-sm font-bold text-mn-text">Evolução do Engajamento</h4>
+                            <p className="text-xs text-mn-muted">Últimos 6 meses</p>
+                          </div>
+                          <div className="px-2 py-1 rounded-md bg-green-50 text-green-700 text-xs font-bold">
+                            +24.5%
+                          </div>
+                        </div>
+                        <div className="h-32 w-full flex items-end justify-between gap-2 px-2">
+                          {[35, 45, 40, 60, 55, 75, 70, 85, 80, 95, 85, 90].map((h, i) => (
+                            <div key={i} className="w-full bg-green-100 rounded-t-sm relative group hover:bg-green-200 transition-colors">
+                              <div
+                                className="absolute bottom-0 left-0 right-0 bg-mn-green-900 rounded-t-sm transition-all duration-500"
+                                style={{ height: `${h}%` }}
+                              ></div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div className="col-span-2 bg-white/60 rounded-lg p-4 shadow-sm flex items-end justify-between gap-2">
-                        {[40, 70, 50, 90, 60, 80].map((h, i) => (
-                          <div key={i} className="w-full bg-mn-green-900/20 rounded-t-sm transition-all duration-500 group-hover:bg-mn-green-900/30" style={{ height: `${h}%` }}></div>
-                        ))}
+
+                      {/* Bottom Row */}
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="col-span-1 bg-white p-3 rounded-xl border border-mn-border shadow-sm flex flex-col justify-center items-center text-center">
+                          <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-1">
+                            <Clock className="w-4 h-4" />
+                          </div>
+                          <span className="text-xs text-mn-muted">Tempo Médio</span>
+                          <span className="text-sm font-bold text-mn-text">4.5h sem</span>
+                        </div>
+                        <div className="col-span-2 bg-white p-3 rounded-xl border border-mn-border shadow-sm">
+                          <div className="text-xs font-medium text-mn-muted mb-2">Turmas Mais Ativas</div>
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="font-semibold text-mn-text">Medicina T14</span>
+                              <span className="text-green-600 font-bold">92%</span>
+                            </div>
+                            <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                              <div className="h-full bg-green-500 w-[92%]"></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating Elements */}
-                <div className="absolute -top-6 -right-6 bg-white rounded-lg p-4 shadow-xl border border-mn-border/50 animate-[float_6s_ease-in-out_infinite] z-20">
+                {/* Floating Elements - Updated to match content */}
+                <div className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-xl border border-mn-border/50 animate-[float_6s_ease-in-out_infinite] z-20">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-100 rounded-full text-green-700"><TrendingUp className="w-5 h-5" /></div>
+                    <div className="p-2 bg-green-100 rounded-full text-green-700"><CheckCircle2 className="w-5 h-5" /></div>
                     <div>
-                      <p className="text-xs text-mn-muted font-medium">Engajamento</p>
-                      <p className="text-lg font-bold text-mn-green-900">+24%</p>
+                      <p className="text-xs text-mn-muted font-medium">Turmas Cadastradas</p>
+                      <p className="text-lg font-bold text-mn-green-900">14 Turmas</p>
                     </div>
                   </div>
                 </div>
@@ -207,25 +275,54 @@ export default function InstitucionalPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="relative">
+              <div className="relative max-w-md mx-auto md:max-w-none">
                 <div className="absolute -inset-4 bg-mn-green-900/5 rounded-2xl transform rotate-2"></div>
-                <div className="bg-white rounded-2xl p-8 shadow-xl border border-mn-border relative">
-                  <div className="flex items-center gap-4 mb-6 border-b border-mn-border/50 pb-4">
-                    <div className="h-10 w-10 bg-mn-green-900 rounded-lg flex items-center justify-center">
-                      <GraduationCap className="text-white w-6 h-6" />
+                <div className="bg-white rounded-2xl shadow-xl border border-mn-border relative overflow-hidden">
+                  <div className="bg-gray-50/80 border-b border-mn-border p-4 flex items-center gap-3">
+                    <div className="h-8 w-8 bg-mn-green-900 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="text-white w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-mn-text">Portal da Coordenação</h4>
-                      <p className="text-xs text-mn-muted uppercase tracking-wider">Acesso Restrito</p>
+                      <h4 className="font-bold text-mn-text text-sm">Portal da Coordenação</h4>
+                      <p className="text-[10px] text-mn-muted uppercase tracking-wider font-semibold">Acesso Restrito</p>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="h-24 bg-mn-surface-alt rounded-lg border border-dashed border-mn-border flex items-center justify-center text-mn-muted text-sm">
-                      Área de Gráficos de Desempenho
+
+                  <div className="p-5 space-y-5">
+                    {/* Fake Chart Section */}
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-semibold text-mn-text">Comparativo de Turmas</span>
+                        <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">Semanal</span>
+                      </div>
+                      <div className="space-y-3">
+                        {[
+                          { label: "Medicina - 1º Ano", val: 85, color: "bg-green-500" },
+                          { label: "Medicina - 2º Ano", val: 62, color: "bg-green-300" },
+                          { label: "Enfermagem - 3º Ano", val: 78, color: "bg-emerald-400" }
+                        ].map((item, idx) => (
+                          <div key={idx}>
+                            <div className="flex justify-between text-xs mb-1">
+                              <span className="text-gray-600">{item.label}</span>
+                              <span className="font-bold text-gray-800">{item.val}%</span>
+                            </div>
+                            <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                              <div className={`h-full ${item.color} rounded-full`} style={{ width: `${item.val}%` }}></div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="h-16 bg-mn-surface-alt rounded-lg"></div>
-                      <div className="h-16 bg-mn-surface-alt rounded-lg"></div>
+
+                    <div className="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100">
+                      <div className="text-center p-2 rounded-lg bg-blue-50/50">
+                        <div className="text-xl font-bold text-blue-700">92%</div>
+                        <div className="text-[10px] text-blue-600/80 font-medium">Presença Digital</div>
+                      </div>
+                      <div className="text-center p-2 rounded-lg bg-orange-50/50">
+                        <div className="text-xl font-bold text-orange-700">4.8</div>
+                        <div className="text-[10px] text-orange-600/80 font-medium">Nota Média</div>
+                      </div>
                     </div>
                   </div>
                 </div>

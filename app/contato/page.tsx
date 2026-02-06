@@ -46,7 +46,7 @@ export default function ContatoPage() {
             <div>
               <h2 className="text-2xl font-bold text-mn-text mb-6">Entre em Contato</h2>
               <p className="text-mn-muted mb-8 leading-relaxed">
-                Tem alguma dúvida, sugestão ou precisa de suporte? Nossa equipe está pronta 
+                Tem alguma dúvida, sugestão ou precisa de suporte? Nossa equipe está pronta
                 para atender você. Responderemos em até 24 horas úteis.
               </p>
 
@@ -67,7 +67,7 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-mn-text">Telefone</h3>
-                    <p className="text-mn-muted">(11) 99999-9999</p>
+                    <p className="text-mn-muted">(98) 98427-4081</p>
                   </div>
                 </div>
 
@@ -77,7 +77,7 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-mn-text">Endereço</h3>
-                    <p className="text-mn-muted">São Paulo, SP - Brasil</p>
+                    <p className="text-mn-muted">Parnaíba, PI - Brasil</p>
                   </div>
                 </div>
               </div>
